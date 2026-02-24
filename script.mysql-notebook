@@ -2,7 +2,7 @@
     "type": "MySQLNotebook",
     "version": "1.0",
     "caption": "Script",
-    "content": "USE desafio_vendas;\n\n-- Faturamento total por categoria\n\nSELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento \nFROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC;\n\n-- Região com maior quantidade de vendas\n\nSELECT regiao, \n    SUM(quantidade) AS total_itens\nFROM vendas_limpas\nGROUP BY regiao\nORDER BY total_itens DESC\nLIMIT 1;\n\n-- Top 5 clientes \n\nSELECT cliente, \n    SUM(valor_total) AS total_gasto\nFROM vendas_limpas\nGROUP BY cliente\nORDER BY total_gasto DESC\nLIMIT 5;\n\n-- Ticket médio\n\nSELECT \n    ROUND(SUM(valor_total) / COUNT(DISTINCT id_venda), 2) AS ticket_medio_por_pedido\nFROM vendas_limpas;\n\n\n\n",
+    "content": "USE desafio_vendas;\n\n-- Faturamento total por categoria\n\nSELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento \nFROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC;\n\n-- Região com maior quantidade de vendas\n\nSELECT regiao, \n    SUM(quantidade) AS total_itens\nFROM vendas_limpas\nGROUP BY regiao\nORDER BY total_itens DESC\nLIMIT 1;\n\n-- Top 5 clientes \n\nSELECT cliente, \n    SUM(valor_total) AS total_gasto\nFROM vendas_limpas\nGROUP BY cliente\nORDER BY total_gasto DESC\nLIMIT 5;\n\n-- Ticket médio\n\nSELECT \n    ROUND(SUM(valor_total) / COUNT(DISTINCT id_venda), 2) AS ticket_medio_por_pedido\nFROM vendas_limpas;\n\n\n\n\n",
     "options": {
         "tabSize": 4,
         "indentSize": 4,
@@ -15,11 +15,11 @@
             {
                 "inSelectionMode": false,
                 "selectionStart": {
-                    "lineNumber": 2,
+                    "lineNumber": 32,
                     "column": 1
                 },
                 "position": {
-                    "lineNumber": 2,
+                    "lineNumber": 32,
                     "column": 1
                 }
             }
@@ -46,15 +46,15 @@
                 "result": {
                     "type": "resultIds",
                     "list": [
-                        "440414f0-7398-44be-d55e-d7fe3a4f051b",
-                        "068ff2cf-366c-4720-f335-3dd3c376405a",
-                        "d300bc1b-2b0e-48ae-e473-27ab894b8938",
-                        "dbca6d57-97cc-4888-931b-d22c1d538e3a",
-                        "24b84888-c22e-4ae3-c284-e3e278914cff"
+                        "5e24ad73-ecba-4ddb-fcaa-30c103bd31e9",
+                        "20cd122a-daf0-4f71-d125-525d91f98c52",
+                        "925b12a7-973e-4dba-d125-1f69f1218d8e",
+                        "e53ae7ef-098f-488b-b0cb-18fd7348eb01",
+                        "a11682de-fa80-4fb4-a86b-1f271d8b65ac"
                     ]
                 },
                 "currentHeight": 36,
-                "currentSet": 4,
+                "currentSet": 1,
                 "statements": [
                     {
                         "delimiter": ";",
@@ -114,24 +114,32 @@
             },
             "data": [
                 {
-                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
-                    "resultId": "440414f0-7398-44be-d55e-d7fe3a4f051b",
+                    "tabId": "ec12f18d-14d2-4681-96fa-d5de7dd2bee3",
+                    "resultId": "5e24ad73-ecba-4ddb-fcaa-30c103bd31e9",
                     "rows": [
                         {
-                            "0": "Acessorios",
+                            "0": "ACESSORIOS",
                             "1": 4685092.86
-                        },
-                        {
-                            "0": "Móveis",
-                            "1": 4525547.13
-                        },
-                        {
-                            "0": "Eletronicos",
-                            "1": 3883661.41
                         },
                         {
                             "0": "Eletrodomésticos",
                             "1": 3698535.2
+                        },
+                        {
+                            "0": "Moveis",
+                            "1": 3151979.43
+                        },
+                        {
+                            "0": "ELETRONICOS",
+                            "1": 2799008.38
+                        },
+                        {
+                            "0": "Móveis ",
+                            "1": 1373567.7
+                        },
+                        {
+                            "0": "Eletrônicos ",
+                            "1": 1084653.03
                         }
                     ],
                     "columns": [
@@ -175,19 +183,19 @@
                         }
                     ],
                     "executionInfo": {
-                        "text": "OK, 4 records retrieved in 6.079ms"
+                        "text": "OK, 6 records retrieved in 13.341ms"
                     },
-                    "totalRowCount": 4,
+                    "totalRowCount": 6,
                     "hasMoreRows": false,
                     "currentPage": 0,
                     "index": 1,
-                    "sql": "\n\n-- Faturamento total por categoria\n\nSELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento \nFROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC;",
+                    "sql": "\n\n-- Faturamento total por categoria\n\nSELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento \nFROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC",
                     "updatable": false,
                     "fullTableName": ""
                 },
                 {
-                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
-                    "resultId": "068ff2cf-366c-4720-f335-3dd3c376405a",
+                    "tabId": "ec12f18d-14d2-4681-96fa-d5de7dd2bee3",
+                    "resultId": "20cd122a-daf0-4f71-d125-525d91f98c52",
                     "rows": [
                         {
                             "0": "Centro-Oeste",
@@ -235,19 +243,19 @@
                         }
                     ],
                     "executionInfo": {
-                        "text": "OK, 1 record retrieved in 5.089ms"
+                        "text": "OK, 1 record retrieved in 9.876ms"
                     },
                     "totalRowCount": 1,
                     "hasMoreRows": false,
                     "currentPage": 0,
                     "index": 2,
-                    "sql": "\n\n-- Região com maior quantidade de vendas\n\nSELECT regiao, \n    SUM(quantidade) AS total_itens\nFROM vendas_limpas\nGROUP BY regiao\nORDER BY total_itens DESC\nLIMIT 1;",
+                    "sql": "\n\n-- Região com maior quantidade de vendas\n\nSELECT regiao, \n    SUM(quantidade) AS total_itens\nFROM vendas_limpas\nGROUP BY regiao\nORDER BY total_itens DESC\nLIMIT 1",
                     "updatable": false,
                     "fullTableName": ""
                 },
                 {
-                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
-                    "resultId": "d300bc1b-2b0e-48ae-e473-27ab894b8938",
+                    "tabId": "ec12f18d-14d2-4681-96fa-d5de7dd2bee3",
+                    "resultId": "925b12a7-973e-4dba-d125-1f69f1218d8e",
                     "rows": [
                         {
                             "0": "Ágatha Leão",
@@ -311,19 +319,19 @@
                         }
                     ],
                     "executionInfo": {
-                        "text": "OK, 5 records retrieved in 7.36ms"
+                        "text": "OK, 5 records retrieved in 10.13ms"
                     },
                     "totalRowCount": 5,
                     "hasMoreRows": false,
                     "currentPage": 0,
                     "index": 3,
-                    "sql": "\n\n-- Top 5 clientes \n\nSELECT cliente, \n    SUM(valor_total) AS total_gasto\nFROM vendas_limpas\nGROUP BY cliente\nORDER BY total_gasto DESC\nLIMIT 5;",
+                    "sql": "\n\n-- Top 5 clientes \n\nSELECT cliente, \n    SUM(valor_total) AS total_gasto\nFROM vendas_limpas\nGROUP BY cliente\nORDER BY total_gasto DESC\nLIMIT 5",
                     "updatable": false,
                     "fullTableName": ""
                 },
                 {
-                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
-                    "resultId": "dbca6d57-97cc-4888-931b-d22c1d538e3a",
+                    "tabId": "ec12f18d-14d2-4681-96fa-d5de7dd2bee3",
+                    "resultId": "e53ae7ef-098f-488b-b0cb-18fd7348eb01",
                     "rows": [
                         {
                             "0": 13994.03
@@ -352,19 +360,19 @@
                         }
                     ],
                     "executionInfo": {
-                        "text": "OK, 1 record retrieved in 3.019ms"
+                        "text": "OK, 1 record retrieved in 6.049ms"
                     },
                     "totalRowCount": 1,
                     "hasMoreRows": false,
                     "currentPage": 0,
                     "index": 4,
-                    "sql": "\n\n-- Ticket médio\n\nSELECT \n    ROUND(SUM(valor_total) / COUNT(DISTINCT id_venda), 2) AS ticket_medio_por_pedido\nFROM vendas_limpas;",
+                    "sql": "\n\n-- Ticket médio\n\nSELECT \n    ROUND(SUM(valor_total) / COUNT(DISTINCT id_venda), 2) AS ticket_medio_por_pedido\nFROM vendas_limpas",
                     "updatable": false,
                     "fullTableName": ""
                 },
                 {
-                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
-                    "resultId": "24b84888-c22e-4ae3-c284-e3e278914cff",
+                    "tabId": "ec12f18d-14d2-4681-96fa-d5de7dd2bee3",
+                    "resultId": "a11682de-fa80-4fb4-a86b-1f271d8b65ac",
                     "rows": [],
                     "columns": [
                         {
@@ -379,13 +387,13 @@
                         }
                     ],
                     "executionInfo": {
-                        "text": "OK, 0 records retrieved in 1.075ms"
+                        "text": "OK, 0 records retrieved in 2.144ms"
                     },
                     "totalRowCount": 0,
                     "hasMoreRows": false,
                     "currentPage": 0,
                     "index": 0,
-                    "sql": "USE desafio_vendas;",
+                    "sql": "USE desafio_vendas",
                     "updatable": false
                 }
             ]
@@ -434,6 +442,26 @@
             "state": {
                 "start": 34,
                 "end": 34,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 35,
+                "end": 35,
                 "language": "mysql",
                 "currentSet": 1,
                 "statements": [

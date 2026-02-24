@@ -1,7 +1,9 @@
 import pandas as pd
 import numpy as np
+import unicodedata
+import os
 
-data = pd.read_csv('vendas_raw.csv')
+data = pd.read_csv('data/vendas_raw.csv')
 df = pd.DataFrame(data)
 
 # Tratamento de Nulos
@@ -36,4 +38,17 @@ df['data_venda'] = df['data_venda'].fillna('Data não informada')
 
 df['categoria'] = df['categoria'].str.strip().str.title()
 
+def remover_acentos(texto):
+    if pd.isna(texto):
+        return texto
+    return unicodedata.normalize('NFKD', str(texto)).encode('ascii', 'ignore').decode('utf-8')
+
+df['categoria'] = df['categoria'].apply(remover_acentos).str.strip().str.upper()
+
 df.to_csv('vendas_cleaned.csv', index=False)
+
+caminho_arquivo = os.path.join('data', 'vendas_raw.csv')
+df = pd.read_csv(caminho_arquivo)
+
+from database import salvar_no_banco
+salvar_no_banco(df)
