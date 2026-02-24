@@ -7,7 +7,7 @@ caminho = os.path.join('data', 'vendas_raw.csv')
 df = pd.read_csv(caminho)
 
 usuario = 'root' 
-senha = '280996' 
+senha = '**' 
 host = 'localhost'
 banco = 'desafio_vendas'
 
