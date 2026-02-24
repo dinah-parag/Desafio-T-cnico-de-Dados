@@ -2,7 +2,12 @@
 
 Neste exercício pegamos uma base de dados fictícia (vendas_raw.csv) com intenção de limpar e tratar os dados, transformando os datos em _dashboards_ e em seguida fazer análise para extração de _insights_.
 
-### Passo 1: Qualidade e Limpeza (Python)
+---
+
+### Passo 1: Qualidade e Limpeza (_Python_)
+
+Nesse passo foi feito o tratamento de dados usando o _Python_ por meio do _VSCode_.
+
 ➴ Tratamento de Nulos;  
 ➴ Anonimização de dados sensíveis;  
 ➴ Padronização de Datas;  
@@ -23,14 +28,62 @@ Neste exercício pegamos uma base de dados fictícia (vendas_raw.csv) com inten�
 | valor_total | Float | Preço total da transação |
 | regiao | String | Região geográfica da venda |
 
-<!-- ### Passo 2: Análise de Dados (SQL)
-Com os dados limpos, responda às seguintes perguntas usando consultas SQL: obs: envie os dados limpos para um banco de dados de sua preferencia
+---
 
-Qual o faturamento total por categoria?
-Qual a região que mais vendeu em termos de quantidade de produtos?
-Quem são os 5 clientes que mais gastaram na loja?
-Qual o ticket médio por venda?
+ ### Passo 2: Análise de Dados (SQL)
 
+Após a limpieza dos dados no _Python_ foram feitas algumas _queries_ para responder perguntas propostas, que são vistas e respondidas juntamente com as linhas de comando usados. As _queries_ foram feitas pelo _MySQL Shell for VSCode_.
+
+#### Qual o faturamento total por categoria?
+
+> SELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento 
+FROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC;
+
+<img width="337" height="153" alt="image" src="https://github.com/user-attachments/assets/bf4878ae-4007-4dd4-a230-7f58098fd679" />  
+  
+R.: Na categoria de **Acessórios** tivemos um faturamento toral de R$ 4685092,82.  
+Na categoria de **Eletrodomésticos** tivemos R$ 3698535,20.  
+A categoria de **Eletrônicos** teve um faturamento total de R$ 3883661,41.  
+Com **Móveis** houve o faturamento de R$ 4525547,13.
+
+
+#### Qual a região que mais vendeu em termos de quantidade de produtos?
+  
+> SELECT 
+    regiao, 
+    SUM(quantidade) AS total_produtos
+FROM vendas_limpas
+GROUP BY regiao
+ORDER BY total_produtos DESC
+LIMIT 1;
+
+<img width="356" height="64" alt="image" src="https://github.com/user-attachments/assets/5b605897-8252-4ffa-96bc-76a1ee832b6c" />
+
+R.: A região **Centro-oeste** foi a que mais teve vendas.
+
+#### Quem são os 5 clientes que mais gastaram na loja?
+
+> SELECT cliente, SUM(valor_total) AS total_gasto 
+FROM vendas_limpas GROUP BY cliente ORDER BY total_gasto DESC LIMIT 5;
+
+<img width="334" height="184" alt="image" src="https://github.com/user-attachments/assets/26b69d85-1b21-46b7-a38b-1b652d0cce9a" />
+  
+R.: Os clientes que mais gastaram na loja foram **Ágatha Leão**, **Antony da Cunha**, **Daniela Monteiro**, **Gustavo Azevedo** e **Cecilia Pires**.
+
+#### Qual o ticket médio por venda?
+
+> SELECT 
+    ROUND(SUM(valor_total) / COUNT(id_venda), 2) AS ticket_medio 
+FROM vendas_limpas;
+  
+<img width="157" height="64" alt="image" src="https://github.com/user-attachments/assets/e17e8204-1af6-497b-94b9-b70c92a4cb65" />
+  
+R.: O ticket médio por venda foi de **R$ 13719,64**
+  
+**OBS.: O ticket médio é um indicador financeiro que mede o valor médio gasto por cliente por compra e é calculado dividindo o faturamento total pelo número de vendas.**
+
+
+<!--
 ### Passo 3: Visualização de Dados e Insights
 Criação de Gráficos: Desenvolva pelo menos 3 gráficos (utilizando bibliotecas Python como Matplotlib, Seaborn, Plotly ou até mesmo ferramentas de BI como Power BI/Looker Studio) para ilustrar os resultados das perguntas da etapa de SQL ou demonstrar outros padrões interessantes.
 Comunicação: Crie um pequeno relatório (pode ser no README) detalhando pelo menos 3 insights relevantes que você detectou com base nas suas análises e visualizações.
