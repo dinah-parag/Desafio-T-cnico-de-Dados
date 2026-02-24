@@ -49,4 +49,4 @@ engine = create_engine(f'mysql+pymysql://{usuario}:{senha}@{host}/{banco}')
 
 df.to_sql('vendas_limpas', con=engine, if_exists='replace', index=False)
 
-print("🎉 Sucesso! Seus dados já estão no MySQL.")
+print("Dados no MySQL.")
