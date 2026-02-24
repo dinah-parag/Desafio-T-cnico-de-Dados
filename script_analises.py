@@ -37,16 +37,3 @@ df['data_venda'] = df['data_venda'].fillna('Data não informada')
 df['categoria'] = df['categoria'].str.strip().str.title()
 
 df.to_csv('vendas_cleaned.csv', index=False)
-
-from sqlalchemy import create_engine
-
-usuario = 'root' 
-senha = '*'
-host = 'localhost'
-banco = 'desafio_vendas'
-
-engine = create_engine(f'mysql+pymysql://{usuario}:{senha}@{host}/{banco}')
-
-df.to_sql('vendas_limpas', con=engine, if_exists='replace', index=False)
-
-print("Dados no MySQL.")

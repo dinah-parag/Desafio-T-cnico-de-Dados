@@ -1,0 +1,454 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "Script",
+    "content": "USE desafio_vendas;\n\n-- Faturamento total por categoria\n\nSELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento \nFROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC;\n\n-- Região com maior quantidade de vendas\n\nSELECT regiao, \n    SUM(quantidade) AS total_itens\nFROM vendas_limpas\nGROUP BY regiao\nORDER BY total_itens DESC\nLIMIT 1;\n\n-- Top 5 clientes \n\nSELECT cliente, \n    SUM(valor_total) AS total_gasto\nFROM vendas_limpas\nGROUP BY cliente\nORDER BY total_gasto DESC\nLIMIT 5;\n\n-- Ticket médio\n\nSELECT \n    ROUND(SUM(valor_total) / COUNT(DISTINCT id_venda), 2) AS ticket_medio_por_pedido\nFROM vendas_limpas;\n\n\n\n",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 2,
+                    "column": 1
+                },
+                "position": {
+                    "lineNumber": 2,
+                    "column": 1
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 1,
+                "column": 1
+            },
+            "firstPositionDeltaTop": 0
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 31,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "440414f0-7398-44be-d55e-d7fe3a4f051b",
+                        "068ff2cf-366c-4720-f335-3dd3c376405a",
+                        "d300bc1b-2b0e-48ae-e473-27ab894b8938",
+                        "dbca6d57-97cc-4888-931b-d22c1d538e3a",
+                        "24b84888-c22e-4ae3-c284-e3e278914cff"
+                    ]
+                },
+                "currentHeight": 36,
+                "currentSet": 4,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 19
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 19,
+                            "length": 163
+                        },
+                        "contentStart": 57,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 182,
+                            "length": 164
+                        },
+                        "contentStart": 226,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 346,
+                            "length": 145
+                        },
+                        "contentStart": 368,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 491,
+                            "length": 131
+                        },
+                        "contentStart": 510,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 622,
+                            "length": 1
+                        },
+                        "contentStart": 621,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
+                    "resultId": "440414f0-7398-44be-d55e-d7fe3a4f051b",
+                    "rows": [
+                        {
+                            "0": "Acessorios",
+                            "1": 4685092.86
+                        },
+                        {
+                            "0": "Móveis",
+                            "1": 4525547.13
+                        },
+                        {
+                            "0": "Eletronicos",
+                            "1": 3883661.41
+                        },
+                        {
+                            "0": "Eletrodomésticos",
+                            "1": 3698535.2
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "categoria",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "faturamento",
+                            "field": "1",
+                            "dataType": {
+                                "type": 9,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 53,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrZero",
+                                "synonyms": [
+                                    "FLOAT8"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 4 records retrieved in 6.079ms"
+                    },
+                    "totalRowCount": 4,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 1,
+                    "sql": "\n\n-- Faturamento total por categoria\n\nSELECT categoria, ROUND(SUM(valor_total), 2) AS faturamento \nFROM vendas_limpas GROUP BY categoria ORDER BY faturamento DESC;",
+                    "updatable": false,
+                    "fullTableName": ""
+                },
+                {
+                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
+                    "resultId": "068ff2cf-366c-4720-f335-3dd3c376405a",
+                    "rows": [
+                        {
+                            "0": "Centro-Oeste",
+                            "1": 1320
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "regiao",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "total_itens",
+                            "field": "1",
+                            "dataType": {
+                                "type": 9,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 53,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrZero",
+                                "synonyms": [
+                                    "FLOAT8"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 1 record retrieved in 5.089ms"
+                    },
+                    "totalRowCount": 1,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 2,
+                    "sql": "\n\n-- Região com maior quantidade de vendas\n\nSELECT regiao, \n    SUM(quantidade) AS total_itens\nFROM vendas_limpas\nGROUP BY regiao\nORDER BY total_itens DESC\nLIMIT 1;",
+                    "updatable": false,
+                    "fullTableName": ""
+                },
+                {
+                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
+                    "resultId": "d300bc1b-2b0e-48ae-e473-27ab894b8938",
+                    "rows": [
+                        {
+                            "0": "Ágatha Leão",
+                            "1": 74259.52
+                        },
+                        {
+                            "0": "Antony da Cunha",
+                            "1": 67883.76
+                        },
+                        {
+                            "0": "Daniela Monteiro",
+                            "1": 62155.2
+                        },
+                        {
+                            "0": "Gustavo Azevedo",
+                            "1": 61735.12
+                        },
+                        {
+                            "0": "Cecilia Pires",
+                            "1": 50478.31
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "cliente",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "total_gasto",
+                            "field": "1",
+                            "dataType": {
+                                "type": 9,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 53,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrZero",
+                                "synonyms": [
+                                    "FLOAT8"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 5 records retrieved in 7.36ms"
+                    },
+                    "totalRowCount": 5,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 3,
+                    "sql": "\n\n-- Top 5 clientes \n\nSELECT cliente, \n    SUM(valor_total) AS total_gasto\nFROM vendas_limpas\nGROUP BY cliente\nORDER BY total_gasto DESC\nLIMIT 5;",
+                    "updatable": false,
+                    "fullTableName": ""
+                },
+                {
+                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
+                    "resultId": "dbca6d57-97cc-4888-931b-d22c1d538e3a",
+                    "rows": [
+                        {
+                            "0": 13994.03
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ticket_medio_por_pedido",
+                            "field": "0",
+                            "dataType": {
+                                "type": 9,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 53,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrZero",
+                                "synonyms": [
+                                    "FLOAT8"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 1 record retrieved in 3.019ms"
+                    },
+                    "totalRowCount": 1,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 4,
+                    "sql": "\n\n-- Ticket médio\n\nSELECT \n    ROUND(SUM(valor_total) / COUNT(DISTINCT id_venda), 2) AS ticket_medio_por_pedido\nFROM vendas_limpas;",
+                    "updatable": false,
+                    "fullTableName": ""
+                },
+                {
+                    "tabId": "0e92f3eb-e050-496f-adde-6e78a5f49a7a",
+                    "resultId": "24b84888-c22e-4ae3-c284-e3e278914cff",
+                    "rows": [],
+                    "columns": [
+                        {
+                            "title": "*",
+                            "field": "0",
+                            "dataType": {
+                                "type": 0
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 0 records retrieved in 1.075ms"
+                    },
+                    "totalRowCount": 0,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "USE desafio_vendas;",
+                    "updatable": false
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 32,
+                "end": 32,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 33,
+                "end": 33,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 34,
+                "end": 34,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
