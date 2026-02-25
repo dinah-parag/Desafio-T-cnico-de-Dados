@@ -1,10 +1,10 @@
-## 𝜗ৎ Desafio Técnico em Tratamento e Análise de  Dados 𝜗ৎ
+## Prática Técnica em Tratamento e Análise de  Dados
 
 Neste exercício pegamos uma base de dados fictícia (vendas_raw.csv) com intenção de limpar e tratar os dados, transformando os datos em _dashboards_ e em seguida fazer análise para extração de _insights_.
 
 ---
 
-### ⌕ Passo 1: Qualidade e Limpeza (_Python_) ⌕
+###  Passo 1: Qualidade e Limpeza (_Python_)  
 
 Nesse passo foi feito o tratamento de dados usando o _Python_ por meio do _VSCode_.
 
@@ -30,7 +30,7 @@ Nesse passo foi feito o tratamento de dados usando o _Python_ por meio do _VSCod
 
 ---
 
- ### 🕮 Passo 2: Análise de Dados (SQL) 🕮
+ ### Passo 2: Análise de Dados (SQL) 
 
 Após a limpieza dos dados no _Python_ foram feitas algumas _queries_ para responder perguntas propostas, que são vistas e respondidas juntamente com as linhas de comando usados. As _queries_ foram feitas pelo _MySQL Shell for VSCode_.
 
@@ -84,7 +84,7 @@ R.: O ticket médio por venda foi de **R$ 13.719,64**
 
 ---
   
-### ꩜ Passo 3: Visualização de Dados e Insights ꩜
+### Passo 3: Visualização de Dados e Insights 
 
 Neste passo iniciamos a parte de vizualização de dados, e ela foi feita pelo Seaborn, que foi escolhida levando em conta a capacidade subjetiva de gerar visualizações estatísticas claras, sendo uma ferramenta muito eficiente para criar ótimos apoios visuais para gerar _insights_, principalmente considerando pessoas com menos conhecimento técnico.
 Abaixo vemos os gráficos feitos a partes da base de dados de vendas limpo para responder visualmente as perguntas no passo 2.
