@@ -103,9 +103,11 @@ Abaixo vemos os gráficos feitos a partes da base de dados de vendas limpo para 
 <img width="600" height="400" alt="grafico_faturamento_regiao" src="https://github.com/user-attachments/assets/6c8495f9-fb49-40e7-9d3e-57df689a593e" />
 
     
-### Insights a partir das informações retiradas dos dado:
+### Insights a partir das informações retiradas dos dados:
 ⤷ Por categoria a maior quantidade de vendas está em acessórios (gráfico 1), tendo em vista que os acessórios costumam ser os menos custosos entre as opção é preciso observar a possibilidade de incentivo para venda de item mais estimados financeiramente.  
   
 ⤷ Observando a diferença dos gastos dos top 5 clientes para com a média geral de gastos (gráfico 2) vemos na diferença uma possibilidade de dependência de clientes específicos. Fica a proposta para criação de algum tipo de programa de fidelização de clientes.  
   
 ⤷ Apesar da região Centro-Oeste ter se mostrado como a região com mais vendas vemos que percentualmente ela tem a mesma quantidade que a região Norte (gráfico 3), mas quando olhamos para a distribuição de faturamente (gráfico 4) percebemos com mais clareza a diferença entre eles. Apesar disso a distribuição de vendas entre as regiões é relativamente harmônica.     
+   
+⤷ Vendo as inconsistências nos dados iniciais fica aparente que não é usado um sistema padronizado entre as lojas. Com problemas como a diferença de escrita entre as categorias e diferença de formatação de datas há a possibilidade de perda de dados e por isso a sugestão é que haja um sistema mais padronizado, com possibilidade de seleção de categorias, ao invés da escrita, e também seleção de data em formato preestabelecido. 
